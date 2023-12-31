@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "seed": "node ./db/setup.js",
     "start": "nodemon app.js"
   },
   "keywords": [],
