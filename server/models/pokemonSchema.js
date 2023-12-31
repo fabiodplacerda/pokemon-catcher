@@ -13,6 +13,7 @@ const pokemonSchema = new mongoose.Schema({
     type: String,
     lowercase: true,
   },
+  generation: Number,
 });
 
 const Pokemon = mongoose.model("Pokemons", pokemonSchema);
