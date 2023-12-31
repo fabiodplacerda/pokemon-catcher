@@ -1,10 +1,10 @@
 const rarityClassifier = (pokemon) => {
-  if (pokemon.pokemon_id === 150 || pokemon.pokemon_id === 151) {
+  if (pokemon.order === 150 || pokemon.order === 151) {
     return "mythic";
   } else if (
-    pokemon.pokemon_id === 144 ||
-    pokemon.pokemon_id === 145 ||
-    pokemon.pokemon_id === 146
+    pokemon.order === 144 ||
+    pokemon.order === 145 ||
+    pokemon.order === 146
   ) {
     return "legendary";
   } else if (pokemon.statTotal >= 425) {
