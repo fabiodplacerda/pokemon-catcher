@@ -1,25 +1,5 @@
 const axios = require("axios");
-const fs = require("fs/promises");
-
-const rarityClassifier = (pokemon) => {
-  if (pokemon.pokemon_id === 150 || pokemon.pokemon_id === 151) {
-    return "Mythic";
-  } else if (
-    pokemon.pokemon_id === 144 ||
-    pokemon.pokemon_id === 145 ||
-    pokemon.pokemon_id === 146
-  ) {
-    return "Legendary";
-  } else if (pokemon.statTotal >= 425) {
-    return "Epic";
-  } else if (pokemon.statTotal >= 380) {
-    return "Rare";
-  } else if (pokemon.statTotal >= 315) {
-    return "Uncommon";
-  } else {
-    return "Common";
-  }
-};
+const rarityClassifier = require("./rarityClassifier");
 
 exports.getPokemonData = async () => {
   try {
@@ -56,7 +36,7 @@ exports.getPokemonData = async () => {
     for (const pokemon of pokemonObject) {
       pokemon.rarity = rarityClassifier(pokemon);
     }
-
+    console.log("Successfully fetched Pokémon data.");
     return pokemonObject;
   } catch (error) {
     console.error("Error fetching Pokemon data:", error.message);
