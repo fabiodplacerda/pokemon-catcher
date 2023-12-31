@@ -1,1 +1,152 @@
+* {
+  list-style-type: none;
+  text-align: center;
+}
 
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pokemon-card {
+  width: 300px;
+  border: 3px solid black;
+  margin: 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  /* Card Expand when hover */
+  box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06),
+    1px 3px 8px rgba(39, 44, 49, 0.03);
+  transition: all 0.5s ease;
+}
+.pokemon-card:hover {
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+    1px 6px 12px rgba(39, 44, 49, 0.04);
+  transition: all 0.4s ease; /* zoom in */
+}
+
+.pokemon-img {
+  width: 150px;
+}
+
+.common {
+  border-color: #a9a9a9;
+}
+.uncommon {
+  border-color: #008080;
+}
+.rare {
+  border-color: #4169e1;
+}
+.epic {
+  border-color: #9932cc;
+}
+.legendary {
+  border-color: #ffd700;
+}
+.mythic {
+  border-color: #ff6347;
+}
+
+.types {
+  display: flex;
+  justify-content: center;
+}
+
+.type-text {
+  width: 50px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px 5px;
+}
+
+.normal {
+  background-color: #a8a77a;
+}
+.fire {
+  background-color: #ee8130;
+}
+.water {
+  background-color: #6390f0;
+}
+.electric {
+  background-color: #f7d02c;
+}
+.grass {
+  background-color: #7ac74c;
+}
+.ice {
+  background-color: #96d9d6;
+}
+.fighting {
+  background-color: #c22e28;
+}
+.poison {
+  background-color: #a33ea1;
+}
+.ground {
+  background-color: #e2bf65;
+}
+.flying {
+  background-color: #a98ff3;
+}
+.psychic {
+  background-color: #f95587;
+}
+.bug {
+  background-color: #a6b91a;
+}
+.rock {
+  background-color: #b6a136;
+}
+.ghost {
+  background-color: #735797;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
+}
+.fairy {
+  background-color: #d685ad;
+}
+.dragon {
+  background-color: #6f35fc;
+}
+
+.rarity-container {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  margin: 50px auto;
+}
+
+.rarity-identifier {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.common-r {
+  background-color: #a9a9a9;
+}
+.uncommon-r {
+  background-color: #008080;
+}
+.rare-r {
+  background-color: #4169e1;
+}
+.epic-r {
+  background-color: #9932cc;
+}
+.legendary-r {
+  background-color: #ffd700;
+}
+.mythic-r {
+  background-color: #ff6347;
+}
