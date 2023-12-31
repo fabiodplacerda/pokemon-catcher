@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const Pokemon = require("./models/pokemonSchema");
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 
