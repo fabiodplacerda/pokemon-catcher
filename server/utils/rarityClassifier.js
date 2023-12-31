@@ -1,13 +1,30 @@
 const rarityClassifier = (pokemon) => {
-  if (pokemon.order === 150 || pokemon.order === 151) {
+  const mythicalArr = ["mew", "celebi", "jirachi", "deoxys-normal"];
+
+  const legendaryArr = [
+    "articuno",
+    "zapdos",
+    "moltres",
+    "mewtwo",
+    "raikou",
+    "entei",
+    "suicune",
+    "lugia",
+    "ho-oh",
+    "regirock",
+    "regice",
+    "registeel",
+    "latias",
+    "latios",
+    "kyogre",
+    "groudon",
+    "rayquaza",
+  ];
+  if (mythicalArr.includes(pokemon.name)) {
     return "mythic";
-  } else if (
-    pokemon.order === 144 ||
-    pokemon.order === 145 ||
-    pokemon.order === 146
-  ) {
+  } else if (legendaryArr.includes(pokemon.name)) {
     return "legendary";
-  } else if (pokemon.statTotal >= 425) {
+  } else if (pokemon.statTotal >= 420) {
     return "epic";
   } else if (pokemon.statTotal >= 380) {
     return "rare";
