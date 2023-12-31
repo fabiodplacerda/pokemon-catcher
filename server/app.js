@@ -1,33 +1,29 @@
+const express = require("express");
 const mongoose = require("mongoose");
-const url = "mongodb://localhost/pokemonCatcher";
-const { getPokemonData } = require("./src/utils/pokemonDataWriter");
 
-const Pokemons = require("./src/models/pokemonSchema");
+const Pokemon = require("./models/pokemonSchema");
 
-mongoose.connect(url);
+const app = express();
 
-async function insertIntoDB() {
+app.use(express.json());
+
+app.get("/api", async (req, res) => {
+  return res.json({ message: "Hello World" });
+});
+app.get("/api/pokemons", async (req, res) => {
+  const allPokemons = await Pokemon.find();
+  return res.status(200).json(allPokemons);
+});
+
+const start = async () => {
   try {
-    const result = await getPokemonData();
-    const pokemon = await Pokemons.insertMany(result);
+    await mongoose.connect("mongodb://localhost/pokemonCatcher");
+    app.listen(3000, () => {
+      console.log("App Listening in port 3000");
+    });
   } catch (e) {
-    console.log(e.message);
-  } finally {
-    await mongoose.connection.close();
+    console.log(e);
   }
-}
-
-async function dropCollection() {
-  try {
-    Pokemons.collection.drop();
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-async function start() {
-  await dropCollection();
-  await insertIntoDB();
-}
+};
 
 start();
