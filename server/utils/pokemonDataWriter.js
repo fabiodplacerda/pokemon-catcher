@@ -1,10 +1,11 @@
 const axios = require("axios");
 const rarityClassifier = require("./rarityClassifier");
+const setGeneration = require("./setGeneration");
 
 exports.getPokemonData = async () => {
   try {
     const { data } = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon/?limit=151"
+      "https://pokeapi.co/api/v2/pokemon/?limit=386"
     );
     const pokemonObject = [];
 
@@ -35,6 +36,7 @@ exports.getPokemonData = async () => {
 
     for (const pokemon of pokemonObject) {
       pokemon.rarity = rarityClassifier(pokemon);
+      pokemon.generation = setGeneration(pokemon);
     }
     console.log("Successfully fetched Pokémon data.");
     return pokemonObject;
