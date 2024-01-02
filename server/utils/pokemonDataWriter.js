@@ -5,7 +5,7 @@ const setGeneration = require("./setGeneration");
 exports.getPokemonData = async () => {
   try {
     const { data } = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon/?limit=386"
+      "https://pokeapi.co/api/v2/pokemon/?limit=10"
     );
     const pokemonObject = [];
 
