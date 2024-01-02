@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const url = "mongodb://localhost/pokemonCatcher";
+require("dotenv").config();
+const url = process.env.MONGODB_URI;
+
 const { getPokemonData } = require("../utils/pokemonDataWriter");
 
 const Pokemon = require("../models/pokemonSchema");
