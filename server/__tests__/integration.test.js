@@ -1,25 +1,26 @@
-const mongoose = require("mongoose");
-const request = require("supertest");
-const app = require("../app");
+const mongoose = require('mongoose');
+const request = require('supertest');
+const app = require('../app');
 
-require("dotenv").config();
+require('dotenv').config();
 
 beforeEach(async () => {
-  await mongoose.connect(process.env.MONGODB_URI);
+  // await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect('mongodb://localhost:27017/pokemonCatcher_test');
 });
 
 afterEach(async () => {
   await mongoose.connection.close();
 });
 
-describe("GET /api/pokemons", () => {
-  it("should return all pokemons", () => {
+describe('GET /api/pokemons', () => {
+  it('should return all pokemons', () => {
     return request(app)
-      .get("/api/pokemons")
+      .get('/api/pokemons')
       .expect(200)
       .then(({ body }) => {
         expect(body).toHaveLength(10);
-        body.forEach((pokemon) => {
+        body.forEach(pokemon => {
           expect(pokemon).toMatchObject({
             order: expect.any(Number),
             name: expect.any(String),

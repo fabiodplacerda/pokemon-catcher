@@ -1,22 +1,22 @@
-const axios = require("axios");
-const rarityClassifier = require("./rarityClassifier");
-const setGeneration = require("./setGeneration");
+const axios = require('axios');
+const rarityClassifier = require('./rarityClassifier');
+const setGeneration = require('./setGeneration');
 
 exports.getPokemonData = async () => {
   try {
     const { data } = await axios.get(
-      "https://pokeapi.co/api/v2/pokemon/?limit=10"
+      'https://pokeapi.co/api/v2/pokemon/?limit=386'
     );
     const pokemonObject = [];
 
     await Promise.all(
-      data.results.map(async (pokemon) => {
+      data.results.map(async pokemon => {
         const { data } = await axios.get(pokemon.url);
         pokemonObject.push({
           order: data.id,
           name: data.name,
-          pokemon_img: data.sprites.other["official-artwork"].front_default,
-          types: data.types.map((type) => {
+          pokemon_img: data.sprites.other['official-artwork'].front_default,
+          types: data.types.map(type => {
             return type.type.name;
           }),
           hp: data.stats[0].base_stat,
@@ -38,10 +38,10 @@ exports.getPokemonData = async () => {
       pokemon.rarity = rarityClassifier(pokemon);
       pokemon.generation = setGeneration(pokemon);
     }
-    console.log("Successfully fetched Pokémon data.");
+    console.log('Successfully fetched Pokémon data.');
     return pokemonObject;
   } catch (error) {
-    console.error("Error fetching Pokemon data:", error.message);
+    console.error('Error fetching Pokemon data:', error.message);
     throw error;
   }
 };
