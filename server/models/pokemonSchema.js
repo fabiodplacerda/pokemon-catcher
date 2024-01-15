@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
@@ -10,6 +10,9 @@ const pokemonSchema = new Schema({
   hp: Number,
   attack: Number,
   defense: Number,
+  'special-attack': Number,
+  'special-defense': Number,
+  speed: Number,
   statTotal: Number,
   rarity: {
     type: String,
@@ -18,6 +21,6 @@ const pokemonSchema = new Schema({
   generation: Number,
 });
 
-const Pokemon = mongoose.model("Pokemons", pokemonSchema);
+const Pokemon = mongoose.model('Pokemons', pokemonSchema);
 
 module.exports = Pokemon;
