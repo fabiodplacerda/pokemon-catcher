@@ -3,6 +3,15 @@
   text-align: center;
 }
 
+body {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
@@ -28,6 +37,33 @@
   transition: all 0.4s ease; /* zoom in */
 }
 
+.single-card {
+  text-transform: capitalize;
+  border: 2px solid black;
+  border-radius: 50px;
+  width: 40vw;
+
+  margin: 50px auto;
+  font-size: 1.2rem;
+}
+
+.single-card h2 {
+  font-size: 2rem;
+}
+
+.single-card img {
+  width: 70%;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stats > * {
+  width: 20%;
+}
+
 .pokemon-img {
   width: 150px;
 }
@@ -46,9 +82,15 @@
 }
 .legendary {
   border-color: #ffd700;
+  -webkit-box-shadow: 0px 0px 14px 4px rgba(255, 217, 0, 0.9);
+  -moz-box-shadow: 0px 0px 14px 4px rgba(255, 217, 0, 0.9);
+  box-shadow: 0px 0px 14px 4px rgba(255, 217, 0, 0.9);
 }
 .mythic {
   border-color: #ff6347;
+  -webkit-box-shadow: 0px 0px 14px 10px rgba(255, 99, 71, 0.9);
+  -moz-box-shadow: 0px 0px 14px 10px rgba(255, 99, 71, 0.9);
+  box-shadow: 0px 0px 14px 10px rgba(255, 99, 71, 0.9);
 }
 
 .types {
@@ -96,6 +138,7 @@
 }
 .psychic {
   background-color: #f95587;
+  min-width: 80px;
 }
 .bug {
   background-color: #a6b91a;

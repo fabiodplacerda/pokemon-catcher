@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import fetchPokemons from "../utils/utils";
-import PokemonCard from "./PokemonCard";
+import { useEffect, useState } from 'react';
+import { fetchPokemons } from '../utils/utils';
+import PokemonCard from './PokemonCard';
 
 const PokemonList = () => {
   const [pokemons, setPokemons] = useState([]);

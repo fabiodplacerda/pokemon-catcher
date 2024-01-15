@@ -1,14 +1,24 @@
+import { Link } from 'react-router-dom';
+
 const PokemonCard = ({ pokemons }) => {
   return (
     <ul className="pokemon-list">
       {pokemons.map(
-        ({ order, name, pokemon_img, types, statTotal, rarity }) => {
+        ({ _id, order, name, pokemon_img, types, statTotal, rarity }) => {
           return (
-            <li key={order} className={`${rarity} pokemon-card`}>
+            <Link
+              key={order}
+              className={`${rarity} pokemon-card`}
+              to={`/pokemons/${_id}`}
+            >
               <h2>{name}</h2>
-              <img src={pokemon_img} alt="" className="pokemon-img" />
+              <img
+                src={pokemon_img}
+                alt={`${name} image`}
+                className="pokemon-img"
+              />
               <div className="types">
-                {types.map((type) => {
+                {types.map(type => {
                   return (
                     <p key={type} className={`${type} type-text`}>
                       {type}
@@ -18,7 +28,7 @@ const PokemonCard = ({ pokemons }) => {
               </div>
 
               <p> Power: {statTotal} </p>
-            </li>
+            </Link>
           );
         }
       )}
